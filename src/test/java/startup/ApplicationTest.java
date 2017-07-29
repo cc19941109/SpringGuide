@@ -15,7 +15,7 @@ import model.UserRepository;
 public class ApplicationTest {
 	@Autowired
 	private UserRepository userRepository;
-
+	//test
 	@Test
 	public void test() {
 		
