@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import model.Application;
-import model.User;
-import model.UserRepository;
+import mysql.Application;
+import mysql.User;
+import mysql.UserRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)

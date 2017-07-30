@@ -1,4 +1,4 @@
-package model;
+package mysql;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package model;
+package mysql;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
