@@ -1,11 +1,67 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    <head>
-        <title>Spring Security Example</title>
-    </head>
-    <body>
-        <h1>Welcome!</h1>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Spring Security Example</title>
 
-        <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
-    </body>
+</head>
+<body>
+	<h1>Welcome!</h1>
+
+	<p>
+		Click <a th:href="@{/hello}">here</a> to see a greeting.
+	</p>
+	<script src="http://code.jquery.com/jquery-1.4.3.js"></script>
+	<script type="text/javascript">
+    //页面加载   获取全部信息
+    $(function(){
+        $.ajax({
+            type: "GET",//请求方式
+            url: "/demo/all",//地址，就是json文件的请求路径
+            dataType: "json",//数据类型可以为 text xml json  script  jsonp
+　　　　　 success: function(result){//返回的参数就是 action里面所有的有get和set方法的参数     
+ 				//alert(result+"  success");	
+}，
+            error: function(result){//返回的参数就是 action里面所有的有get和set方法的参数          
+ 				//alert(result+"fail");
+            }
+       
+        });
+        /*$.get("item.json",function(result){
+            //result数据添加到box容器中;
+            addBox(result);
+        });*/
+    });
+
+</script>
+
+	<script>
+        //页面加载   获取全部信息
+        $(function(){
+            $.ajax({
+                type: "GET",//请求方式
+                url: "/demo/all",//地址，就是json文件的请求路径
+                dataType: "json",//数据类型可以为 text xml json  script  jsonp
+　　　　　　　　　 success: function(result){//返回的参数就是 action里面所有的有get和set方法的参数
+                    addBox(result);
+                }
+            });
+       
+        });
+        function addBox(result){
+            //result是一个集合,所以需要先遍历
+            $.each(result,function(index,obj){
+                $("#box").append(
+                    //获得名字
+                    "<div>"+obj['name']+"   "+obj['email']+"</div>"
+                );
+            });
+        }
+    </script>
+	<div id="box"></div>
+	<button></button>
+</body>
 </html>
+
+
